@@ -30,8 +30,8 @@ async function getWeather(city) {
 
 function displayWeather(data) {
     const { name: city, 
-            main: { temp, humidity }, // Fixed destructuring (was using name instead of main)
-            weather: [{ description, id }] } = data; // Added id to destructuring
+            main: { temp, humidity }, 
+            weather: [{ description, id }] } = data; 
     
     card.textContent = "";
     card.style.display = "flex";
@@ -40,7 +40,7 @@ function displayWeather(data) {
     const tempDisplay = document.createElement("p");
     const humidityDisplay = document.createElement("p");
     const descDisplay = document.createElement("p");
-    const emojiDisplay = document.createElement("p");
+    const emojiDisplay = document.createElement("h1");
 
     cityDisplay.textContent = city;
     tempDisplay.textContent = `Temperature: ${Math.floor(temp - 273.15)}°C`;
@@ -72,7 +72,7 @@ function getWeatherEmoji(weather) {
         return "❄️";
     } else if (weather < 800 && weather >= 700) {
         return "🌫️";
-    } else if (weather <= 804 && weather >= 800) { // Fixed range for clear/cloudy weather
+    } else if (weather <= 804 && weather >= 800) { 
         return "☀️";
     } else if (weather === 900) {
         return "🌀";
@@ -88,5 +88,5 @@ function displayError(message) {
     
     card.textContent = "";
     card.style.display = "flex";
-    card.appendChild(errorDisplay); // Fixed typo in variable name
+    card.appendChild(errorDisplay); 
 }
