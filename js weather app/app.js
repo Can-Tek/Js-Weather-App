@@ -8,7 +8,7 @@ weatherForm.addEventListener('submit', async event => {
     const city = cityInput.value;
     if (city) {
         try {
-            const weatherData = await getWeather(city); // Changed from getWeatherData to getWeather
+            const weatherData = await getWeather(city); 
             displayWeather(weatherData);
         } catch (error) {
             console.log(error);
@@ -22,7 +22,7 @@ weatherForm.addEventListener('submit', async event => {
 async function getWeather(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     const response = await fetch(apiUrl);
-    if (!response.ok) { // Fixed condition (was checking if response.ok is true)
+    if (!response.ok) { 
         throw new Error('Could not fetch weather data');
     }
     return await response.json();
